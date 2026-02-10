@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Epi Peck</title>
+  </head>
+  <body>
+    <h1 id="title">DOM SELECTION LAB</h1>
+
+    <p class="info">Epi Peck</p>
+    <p class="info">Gui</p>
+    <p class="info">lab</p>
+
+    <div id="container">
+      <button type="button" class="action-btn">act1</button>
+      <button type="button" class="action-btn">act2</button>
+      <button type="button" id="special-btn">special button</button>
+    </div>
+
+    <script defer>
+      const title = document.getElementById("title");
+      if (!title) {
+        console.error("Title element not found");
+      } else {
+        console.log("Title:", title);
+      }
+      const para1 = document.querySelector(".info");
+      if (!para1) {
+        console.error("P1 element not found");
+      } else {
+        console.log("Found element: ", para1);
+      }
+      const actbuttons = document.querySelectorAll(".action-btn");
+      if (actButtons === 0) {
+        console.error("No buttons received");
+      } else {
+        console.log("Action buttons: ", actButtons);
+      }
+    </script>
+  </body>
+</html>

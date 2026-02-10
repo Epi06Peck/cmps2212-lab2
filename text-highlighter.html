@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text-highlighter</title>
+    <style>
+      .highlight {
+        background-color: yellow;
+        padding: 10px;
+        border-left: 4px solid orange;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="page-title">Text Highlighter</h1>
+    <p class="paragraph">Hi</p>
+    <p class="paragraph">there</p>
+    <p class="paragraph">user</p>
+    <p class="paragraph">!!!</p>
+
+    <button type="button" id="highlight-btn">Highlight All</button>
+    <button type="button" id="clear-btn">Clear Highlights</button>
+    <button type="button" id="toggle-btn">Toggle first Paragraph</button>
+
+    <script defer>
+      const paragraphs = document.querySelectorAll(".paragraph");
+      if (!paragraphs) {
+        console.error("No paragraphs received");
+      }
+      const firstPara = document.querySelector(".paragraph");
+      if (!firstPara) {
+        console.error("First paragraph not received");
+      }
+      // getting the buttons
+      const highlightBtn = document.getElementById("highlight-btn");
+      const clearBtn = document.getElementById("clear-btn");
+      const toggleBtn = document.getElementById("toggle-btn");
+
+      if (!highlightBtn || !clearBtn || !toggleBtn) {
+        console.error("1 or more, OR none of the buttons not received");
+      }
+      // highlight even listener
+      highlightBtn.addEventListener("click", () => {
+        paragraphs.forEach((p) => {
+          p.classList.add("highlight");
+        });
+      });
+
+      clearBtn.addEventListener("click", () => {
+        paragraphs.forEach((p) => {
+          p.classList.remove("highlight");
+        });
+      });
+
+      toggleBtn.addEventListener("click", () => {
+        firstPara.classList.toggle("highlight");
+      });
+    </script>
+  </body>
+</html>

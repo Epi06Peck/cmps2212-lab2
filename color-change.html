@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab2-color changer</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: lightgray;
+        border: 2px solid black;
+        margin: 10px;
+        padding: 20px;
+      }
+      .container {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="main-heading">Color Changer Lab</h1>
+    <div class="container">
+      <div class="box" id="box1">Box1</div>
+      <div class="box" id="box2">Box2</div>
+      <div class="box" id="box3">Box3</div>
+    </div>
+
+    <button type="button" id="btn-red">Make Red</button>
+    <button type="button" id="btn-blue">Make Blue</button>
+    <button type="button" id="btn-green">Make Green</button>
+    <button type="button" id="reset-btn">Reset All</button>
+    <!-- js event handlers -->
+    <script defer>
+      const boxes = document.querySelectorAll(".box");
+      if (boxes === 0) {
+        console.error("No boxes received");
+      }
+
+      const redBtn = document.getElementById("btn-red");
+      const blueBtn = document.getElementById("btn-blue");
+      const greenBtn = document.getElementById("btn-green");
+      const resetBtn = document.getElementById("reset-btn");
+
+      if (!redBtn || !blueBtn || !greenBtn || !resetBtn) {
+        console.error(
+          "Either one or more, Or none of the buttons was received",
+        );
+      }
+      //  the boxes change red
+      redBtn.addEventListener("click", () => {
+        boxes.forEach((box) => {
+          box.style.backgroundColor = "red";
+        });
+      });
+      //   boxes turn blue
+      blueBtn.addEventListener("click", () => {
+        boxes.forEach((box) => {
+          box.style.backgroundColor = "blue";
+        });
+      });
+      //  boxes turn green
+      greenBtn.addEventListener("click", () => {
+        boxes.forEach((box) => {
+          box.style.backgroundColor = "green";
+        });
+      });
+      // resetting the boxes
+      resetBtn.addEventListener("click", () => {
+        boxes.forEach((box) => {
+          box.style.backgroundColor = "lightgray";
+        });
+      });
+    </script>
+  </body>
+</html>
